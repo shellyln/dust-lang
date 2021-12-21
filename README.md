@@ -1,6 +1,6 @@
 # Dust - toy scripting language
 
-<img src="_assets/dust-lang-logo.svg" alt="logo" style="width:250px;" width="250">
+<img src="https://raw.githubusercontent.com/shellyln/dust-lang/master/_assets/dust-lang-logo.svg" alt="logo" style="width:250px;" width="250">
 
 
 * 👍 Syntax similar to Rust
