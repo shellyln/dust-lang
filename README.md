@@ -1,4 +1,5 @@
 # Dust - toy scripting language
+Toy scripting language with a syntax similar to Rust.
 
 <img src="https://raw.githubusercontent.com/shellyln/dust-lang/master/_assets/dust-lang-logo.svg" alt="logo" style="width:250px;" width="250">
 
@@ -747,3 +748,9 @@ a = 1 + 2, 3 + 4, 5 + 6;
 ++a, ++a, ++a;
 
 ```
+
+
+## License
+
+MIT  
+Copyright (c) 2021 Shellyl_N and Authors.
