@@ -757,7 +757,7 @@ a = 1 + 2, 3 + 4, 5 + 6;
 ```
 
 
-## License
+## ⚖️ License
 
 MIT  
 Copyright (c) 2021 Shellyl_N and Authors.
