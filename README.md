@@ -152,8 +152,7 @@ import (
     "fmt"
     "log"
     "github.com/shellyln/dust-lang/scripting"
-    parser "github.com/shellyln/takenoco/base"
-    xtor "github.com/shellyln/dust-lang/scripting/executor"
+    mnem "github.com/shellyln/dust-lang/scripting/executor/opcode"
 )
 
 func main() {
