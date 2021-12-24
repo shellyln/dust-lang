@@ -1,4 +1,4 @@
-# Dust - toy scripting language
+# Dust - 🧸 toy scripting language 🪅
 Toy scripting language with a syntax similar to Rust.
 
 <img src="https://raw.githubusercontent.com/shellyln/dust-lang/master/_assets/dust-lang-logo.svg" alt="logo" style="width:250px;" width="250">
@@ -38,6 +38,13 @@ Toy scripting language with a syntax similar to Rust.
 ## 🐞 Bugs
 
 * The `break` and `return` statements do not cast the value.
+
+
+## 👋 Examples
+
+* [Hello, World!](https://github.com/shellyln/dust-lang/blob/master/_examples/hello-world.rs)
+* [Mandelbrot set](https://github.com/shellyln/dust-lang/blob/master/_examples/mandelbrot.rs)
+* [Tarai function](https://github.com/shellyln/dust-lang/blob/master/_examples/tarai.rs)
 
 
 ## 🚀 Getting started
