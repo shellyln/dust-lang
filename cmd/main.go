@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	scripting "github.com/shellyln/dust-lang/scripting"
+	"github.com/shellyln/dust-lang/scripting"
 	mnem "github.com/shellyln/dust-lang/scripting/executor/opcode"
 	parser "github.com/shellyln/takenoco/base"
 )

@@ -48,7 +48,7 @@ Toy scripting language with a syntax similar to Rust.
 import (
     "fmt"
     "log"
-    scripting "github.com/shellyln/dust-lang/scripting"
+    "github.com/shellyln/dust-lang/scripting"
 )
 
 func main() {
@@ -76,7 +76,7 @@ func main() {
 import (
     "fmt"
     "log"
-    scripting "github.com/shellyln/dust-lang/scripting"
+    "github.com/shellyln/dust-lang/scripting"
 )
 
 func main() {
@@ -109,7 +109,7 @@ func main() {
 import (
     "fmt"
     "log"
-    scripting "github.com/shellyln/dust-lang/scripting"
+    "github.com/shellyln/dust-lang/scripting"
 )
 
 type Foobar struct {
@@ -144,8 +144,8 @@ func main() {
 import (
     "fmt"
     "log"
+    "github.com/shellyln/dust-lang/scripting"
     parser "github.com/shellyln/takenoco/base"
-    scripting "github.com/shellyln/dust-lang/scripting"
     xtor "github.com/shellyln/dust-lang/scripting/executor"
 )
 
