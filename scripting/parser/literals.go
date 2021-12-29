@@ -383,7 +383,7 @@ func stringLiteralInner(cc string, multiline bool) ParserFn {
 						Trans(
 							FlatGroup(
 								erase(CharClass("u")),
-								Repeat(Times{Min: 4, Max: 4}, Number()),
+								Repeat(Times{Min: 4, Max: 4}, HexNumber()),
 							),
 							ParseIntRadix(16),
 							StringFromInt,
@@ -391,7 +391,7 @@ func stringLiteralInner(cc string, multiline bool) ParserFn {
 						Trans(
 							FlatGroup(
 								erase(CharClass("u{")),
-								Repeat(Times{Min: 1, Max: 6}, Number()),
+								Repeat(Times{Min: 1, Max: 6}, HexNumber()),
 								erase(CharClass("}")),
 							),
 							ParseIntRadix(16),
@@ -400,14 +400,14 @@ func stringLiteralInner(cc string, multiline bool) ParserFn {
 						Trans(
 							FlatGroup(
 								erase(CharClass("x")),
-								Repeat(Times{Min: 2, Max: 2}, Number()),
+								Repeat(Times{Min: 2, Max: 2}, HexNumber()),
 							),
 							ParseIntRadix(16),
 							StringFromInt,
 						),
 						Trans(
 							FlatGroup(
-								Repeat(Times{Min: 3, Max: 3}, Number()),
+								Repeat(Times{Min: 3, Max: 3}, OctNumber()),
 							),
 							ParseIntRadix(8),
 							StringFromInt,
