@@ -1,6 +1,10 @@
 # Dust - 🧸 toy scripting language 🪅
 Toy scripting language with a syntax similar to Rust.
 
+[![Test](https://github.com/shellyln/dust-lang/actions/workflows/test.yml/badge.svg)](https://github.com/shellyln/dust-lang/actions/workflows/test.yml)
+[![release](https://img.shields.io/github/v/release/shellyln/dust-lang)](https://github.com/shellyln/dust-lang/releases)
+[![Go version](https://img.shields.io/github/go-mod/go-version/shellyln/dust-lang)](https://github.com/shellyln/dust-lang)
+
 <img src="https://raw.githubusercontent.com/shellyln/dust-lang/master/_assets/dust-lang-logo.svg" alt="logo" style="width:250px;" width="250">
 
 
