@@ -24,7 +24,7 @@ GOTIDY     := $(GOCMD) mod tidy
 GOCLEAN    := $(GOCMD) clean
 GOTEST     := $(GOCMD) test
 GOVET      := $(GOCMD) vet
-GOLINT     := $(GOPATH)/bin/golint -set_exit_status
+GOLINT     := $(GOPATH)/bin/staticcheck
 TINYGOCMD  := tinygo
 SRCS       :=
 TARGET_CLI := ./
@@ -160,6 +160,7 @@ fatwasm: export GOOS:=js
 fatwasm: export GOARCH:=wasm
 fatwasm: export GOCMD:=go
 fatwasm:
+	$(CP) "$(shell $(GOCMD) env GOROOT)/misc/wasm/wasm_exec.js" web/.
 	$(GOCMD) build -tags wasm -o web/go.wasm ./wasm
 
 
