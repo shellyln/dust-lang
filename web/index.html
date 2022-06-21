@@ -8,7 +8,6 @@
         WebAssembly.instantiateStreaming(fetch("go.wasm"), go.importObject).then((result) => {
             go.run(result.instance);
 
-            // NOTE: TinyGo can export symbols.
             globalThis.goWasmExports = result.instance.exports;
         });
     </script>

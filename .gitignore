@@ -21,3 +21,4 @@ debug.log
 /dust
 /dust.exe
 /web/*.wasm
+/web/wasm_exec.js
