@@ -56,6 +56,8 @@ Toy scripting language with a syntax similar to Rust.
 ### Execute once
 
 ```go
+package main
+
 import (
     "fmt"
     "log"
@@ -72,18 +74,20 @@ func main() {
 
     xctx := scripting.NewExecutionContext()
 
-    result, err := xctx.Execute(xctx, "3 + 5")
+    result, err := scripting.Execute(xctx, "3 + 5")
     if err != nil {
         log.Fatal(err)
     }
 
-    fmt.Println("%v", result)
+    fmt.Println(result)
 }
 ```
 
 ### Compile and execute
 
 ```go
+package main
+
 import (
     "fmt"
     "log"
@@ -100,23 +104,25 @@ func main() {
 
     xctx := scripting.NewExecutionContext()
 
-    ast, err := xctx.Compile(xctx, "3 + 5")
+    ast, err := scripting.Compile(xctx, "3 + 5")
     if err != nil {
         log.Fatal(err)
     }
 
-    result, err := ExecuteAst(xctx, ast)
+    result, err := scripting.ExecuteAst(xctx, ast)
     if err != nil {
         log.Fatal(err)
     }
 
-    fmt.Println("%v", result)
+    fmt.Println(result)
 }
 ```
 
 ### Unmarshal
 
 ```go
+package main
+
 import (
     "fmt"
     "log"
@@ -145,13 +151,15 @@ func main() {
         log.Fatal(err)
     }
 
-    fmt.Println("%v", out)
+    fmt.Println(out)
 }
 ```
 
 ### Set host variables and functions
 
 ```go
+package main
+
 import (
     "fmt"
     "log"
@@ -185,12 +193,12 @@ func main() {
         },
     })
 
-    result, err := xctx.Execute(xctx, "sum(a, 3, 5)")
+    result, err := scripting.Execute(xctx, "sum(a, 3, 5)")
     if err != nil {
         log.Fatal(err)
     }
 
-    fmt.Println("%v", result)
+    fmt.Println(result)
 }
 ```
 
