@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.5
+* Update dependencies.
+* Edit Makefile.
+
 ## v0.0.4
 * Update dependencies.
 * Edit README.

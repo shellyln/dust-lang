@@ -100,6 +100,9 @@ cleantest:
 	$(GOCLEAN) -testcache
 
 
+upgrade:
+	$(GOCMD) get -u && $(GOTIDY)
+
 tidy:
 	$(GOTIDY)
 
