@@ -24,11 +24,14 @@ GOTIDY     := $(GOCMD) mod tidy
 GOCLEAN    := $(GOCMD) clean
 GOTEST     := $(GOCMD) test
 GOVET      := $(GOCMD) vet
-GOLINT     := $(GOPATH)/bin/staticcheck
+GOSHADOW   := $(shell $(GOCMD) env GOPATH)/bin/shadow
+GOLINT     := $(shell $(GOCMD) env GOPATH)/bin/staticcheck
 TINYGOCMD  := tinygo
 SRCS       :=
-TARGET_CLI := ./
-BIN_CLI    := dust
+TARGET_CLI  := ./
+TARGET_WASM := ./wasm
+BIN_CLI     := dust
+BIN_WASM    := web/go.wasm
 
 
 ifeq ($(OS),Windows_NT)
@@ -119,6 +122,10 @@ cover:
 lint:
 	@echo "Run go vet..."
 	$(GOVET) ./...
+	@echo "Run shadow..."
+	$(GOVET) -vettool="$(GOSHADOW)" ./...
+	@echo "Run staticcheck..."
+	$(GOLINT) ./...
 
 
 $(BIN_CLI): export CGO_ENABLED:=0
@@ -126,6 +133,7 @@ $(BIN_CLI): $(SRCS)
 	$(GOBUILD) \
 	    -a -tags osusergo,netgo -installsuffix netgo \
 	    -trimpath \
+	    -buildvcs=false \
 	    $(LDFLAGS) \
 	    -o $(BIN_CLI) $(TARGET_CLI)
 
@@ -152,18 +160,27 @@ xbuild: export GOARM:=$(GOARM)
 xbuild: build ;
 
 
-tinywasm: export GOOS:=js
-tinywasm: export GOARCH:=wasm
-tinywasm:
-	$(CP) "$(shell $(TINYGOCMD) env TINYGOROOT)/targets/wasm_exec.js" web/.
-	$(TINYGOCMD) build -tags wasm -o web/go.wasm ./wasm
-
-
 wasm: export GOOS:=js
 wasm: export GOARCH:=wasm
 wasm:
 	$(CP) "$(shell $(GOCMD) env GOROOT)/misc/wasm/wasm_exec.js" web/.
-	$(GOCMD) build -tags wasm -o web/go.wasm ./wasm
+	$(GOBUILD) \
+	    -a -tags wasm \
+	    -trimpath \
+	    -buildvcs=false \
+	    $(LDFLAGS) \
+	    -o $(BIN_WASM) $(TARGET_WASM)
+
+
+tinywasm: export GOOS:=js
+tinywasm: export GOARCH:=wasm
+tinywasm:
+	$(CP) "$(shell $(TINYGOCMD) env TINYGOROOT)/targets/wasm_exec.js" web/.
+	$(TINYGOCMD) build \
+	    -tags wasm \
+	    -no-debug \
+	    -stack-size 512kB \
+	    -o $(BIN_WASM) $(TARGET_WASM)
 
 
 docker:
